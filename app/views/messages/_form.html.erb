@@ -1,0 +1,27 @@
+<%#= form_with(model: message, url: room_message_path(room_id: message.room_id)) do |form| %>
+  <% if message.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(message.errors.count, "error") %> prohibited this message from being saved:</h2>
+
+      <ul>
+        <% message.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :room_id, value: message.room_id %>
+
+  <div>
+    <%#= form.label :body %>
+    <div class='form-group'>
+      <%= form.text_area :body, class: 'form-control' %>
+    </div>
+    <hr>
+    <%= form.submit 'Submit', class: 'btn btn-success w-100' %>
+  </div>
+
+  <div class="actions">
+  </div>
+<%# end %>

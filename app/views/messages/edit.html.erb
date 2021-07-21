@@ -1,0 +1,7 @@
+<%= turbo_frame_tag dom_id(@message) do %>
+  <%= form_with(model: @message, url: room_message_path(room_id: @message.room_id)) do |form| %>
+    <%= render 'form', message: @message, form: form %>
+  <% end %>
+<% end %>
+<%#= link_to 'Show', @message %> |
+<%#= link_to 'Back', messages_path %>

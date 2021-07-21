@@ -1,0 +1,26 @@
+<div class="container">
+
+  <div class=row>
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+    
+      <p id="notice"><%= notice %></p>
+
+      <h2 class="text-center">
+        <%= @room.name %>
+      </h2>
+
+      <%= turbo_stream_from "messages" %>
+
+      <%= turbo_frame_tag "messages" do %>
+        <%= render @room.messages %>
+      <% end %>
+      
+      <%= render 'messages/new_form', message: @room.messages.build %>
+
+      <%= link_to 'Edit', edit_room_path(@room) %> |
+      <%= link_to 'Back', rooms_path %>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+</div>

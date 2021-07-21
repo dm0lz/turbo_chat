@@ -1,0 +1,15 @@
+
+<div class="container">
+  <h1>Home#index</h1>
+  <p>Find me in app/views/home/index.html.erb</p>
+  <div data-controller="hello">
+    <input type="text" data-hello-target="input">
+    <button data-action="click->hello#greet">Greet</button>
+    <span data-hello-target="output"></span>
+  </div>
+  <hr>
+  <div data-controller="increment">
+    <button data-action="click->increment#call">Click</button>
+    <div data-increment-target="number" data-increment-num-value="0">0</div>
+  </div>
+</div>

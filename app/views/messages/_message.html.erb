@@ -1,0 +1,14 @@
+<%= turbo_frame_tag dom_id(message) do %>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= message.user.email %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= time_ago_in_words message.updated_at %> ago</h6>
+      <%= message.body %>
+      <div class="d-flex flex-row-reverse">
+        <%= link_to 'Destroy', room_message_path(message.room, message), method: :delete, class: "btn btn-danger mx-1" %>
+        <%= link_to 'Edit', edit_room_message_path(message.room, message), class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+  <br>
+<% end %>
